@@ -50,6 +50,20 @@ def random_deviator(profile):
     # TODO more efficient with np.nonzero
 
 
+def random_female_deviator(profile):
+    N, T = profile.shape
+    while True:
+        t = np.random.randint(0, T) 
+        if profile[1,t] > 0: return 1, t
+
+
+def random_male_deviator(profile):
+    N, T = profile.shape
+    while True:
+        t = np.random.randint(0, T) 
+        if profile[0,t] > 0: return 0, t
+    
+
 def is_nash(profile):
     N, T = profile.shape
     for t in range(T):
